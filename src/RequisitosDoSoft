@@ -1,0 +1,14 @@
+Opção 1: Loja de Games Retrô
+Itens para vender:
+
+Super Aventura 64 - R$ 45,00
+Combate Espacial - R$ 60,00
+Corrida Turbo - R$ 50,00
+Regra especial: Se o total passar de R$ 150, aplique 15% de desconto
+
+O que fazer:
+
+3 botões (um para cada jogo)
+Ao clicar, adiciona o valor ao total
+Atualiza a label "Total:" com o valor acumulado
+Se total > R$ 150, calcula 15% de desconto e mostra em "Total com desconto:"

@@ -2,14 +2,18 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Jogos superAventura = new Jogos("Super Aventura 64", 45.00);
+        Jogos combateEspacial = new Jogos("Combate Espacial", 60.00);
+        Jogos corridaTurbo = new Jogos("Corrida Turbo", 50.00);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        Pagamento pagamento = new Pagamento();
+        pagamento.adicionarJogos(superAventura, 1);
+        pagamento.adicionarJogos(combateEspacial, 2);
+        pagamento.adicionarJogos(corridaTurbo, 2);
+        System.out.println(pagamento.getTotal());
+        System.out.println(pagamento.getTotalComDesconto());
+
+        JanelaRetro janelaRetro = new JanelaRetro();
+        janelaRetro.mostrarJanela();
     }
 }
