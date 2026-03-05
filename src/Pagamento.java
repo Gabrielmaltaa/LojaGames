@@ -24,12 +24,37 @@ public class Pagamento {
 
     public double getTotalComDesconto() {
         double valorTotalComDesconto = 0;
-        double valorDesconto = 0.15;
+        double valorDesconto = Constantes.VALOR_MAXIMO_DESCONTO;
         if (getTotal() >= 150){
         valorTotalComDesconto = getTotal() - (getTotal() * valorDesconto);
 
         }
         return valorTotalComDesconto;
     }
+
+    public double getValorEconomizado() {
+        double ValorEconomizado = 0;
+
+
+        if (getTotal()>=150){
+            ValorEconomizado = getTotal() - getTotalComDesconto();
+            return ValorEconomizado;
+        }
+        return ValorEconomizado;
+
+    }
+    public double valorObterDesconto() {
+
+
+        if(getTotal()>=150){
+            return 0;
+        }
+        double valor = getTotal() - 150;
+
+        return valor;
+
+    }
+
+
 
 }

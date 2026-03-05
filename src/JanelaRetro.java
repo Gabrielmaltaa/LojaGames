@@ -4,15 +4,27 @@ public class JanelaRetro {
     private JFrame janela;
     private JButton jogoSuperAventura, jogoCombateEspacial, jogoCorridaTurbo;
     private Pagamento pagamento;
-    private JLabel valorTotal, valorTotalComDesconto;
+    private JLabel valorTotal, valorTotalComDesconto, valorEconomizado, valorObterDesconto;
 
 
     public JanelaRetro() {
         pagamento = new Pagamento();
-        janela = new JFrame("LOJA DE GAMES RETRÔ");
-        janela.setSize(620,350);
+        janela = new JFrame(Constantes.TITULO_JANELA);
+        janela.setSize(Constantes.LARGURA_JANELA_PRINCIPAL,Constantes.ALTURA_JANELA_PRINCIPAL);
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         janela.setLayout(null);
+
+        valorObterDesconto = new JLabel("0");
+        valorObterDesconto.setBounds(340, 190, 160,70 );
+
+        JLabel labelvalorObterDesconto = new JLabel("Resta:");
+        labelvalorObterDesconto.setBounds(230, 190, 160,70);
+
+        JLabel labelValorEconomizado = new JLabel("Valor economizado");
+        labelValorEconomizado.setBounds(230, 140, 160, 70);
+
+        valorEconomizado = new JLabel("0");
+        valorEconomizado.setBounds(340, 140, 160, 70);
 
         jogoSuperAventura = new JButton("Comprar Super Aventura");
         jogoSuperAventura.setBounds(20,20,200,70);
@@ -36,6 +48,11 @@ public class JanelaRetro {
         valorTotalComDesconto = new JLabel("0");
         valorTotalComDesconto.setBounds(370,90,160,70);
 
+
+        janela.add(labelvalorObterDesconto);
+        janela.add(valorObterDesconto);
+        janela.add(labelValorEconomizado);
+        janela.add(valorEconomizado);
         janela.add(jogoCombateEspacial);
         janela.add(jogoSuperAventura);
         janela.add(jogoCorridaTurbo);
@@ -72,9 +89,14 @@ public class JanelaRetro {
 public void atualizarTotais() {
     double total = pagamento.getTotal();
     double totalComDesconto = pagamento.getTotalComDesconto();
+    double totalEconomizado = pagamento.getValorEconomizado();
+    double valorObter = pagamento.getTotalComDesconto();
 
     valorTotal.setText("R$ " + total );
     valorTotalComDesconto.setText("R$ " + totalComDesconto);
+    valorEconomizado.setText("R$" + totalEconomizado);
+    valorObterDesconto.setText("R$"+valorObter);
+
 }
     public void mostrarJanela() {
         // Defini para ficar visivel
